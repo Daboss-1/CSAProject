@@ -9,6 +9,12 @@ public class ATM {
   public ATM(String name){
     this.name = name;
   }
+
+  public ATM(String name, double amount)
+  {
+    this.name = name;
+    balance = amount;
+  }
   public void addAmount(int amount){
     if(amount > 0){
       money += amount;
