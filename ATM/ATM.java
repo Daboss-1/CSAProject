@@ -102,14 +102,14 @@ System.out.println("Money in Hand = " + money);
   case "C":
         System.out.println("****************************************");
      System.out.println("Enter amount to withdraw");
-       int amountOne = scanner.nextInt();
+       double amountOne = scanner.nextDouble();
         withdraw(amountOne);
         System.out.println("****************************************");
 break;
   case "D":
         System.out.println("****************************************");
         System.out.println("Enter amount to deposit");
-        int amountTwo = scanner.nextInt();
+        double amountTwo = scanner.nextDouble();
         deposit(amountTwo);
         System.out.println("****************************************");
         break;
