@@ -1,21 +1,22 @@
 import java.util.Scanner;
 public class ATM {
 
-  private String name;
-  private int balance = 1000;
-  private int oldAmount;
-  private int money = 1000;
+  private static double balance = 1000;
+  private static double oldAmount;
+  private static double money = 1000;
   
-  public ATM(String name){
-    this.name = name;
+  public static void setAmount(double amount)
+  {
+    balance = amount;
+    money = amount;
   }
 
-  public ATM(String name, double amount)
+  public static double getBalance()
   {
-    this.name = name;
-    balance = amount;
+    return balance;
   }
-  public void addAmount(int amount){
+
+  public static void addAmount(double amount){
     if(amount > 0){
       money += amount;
     }
@@ -23,7 +24,7 @@ public class ATM {
       System.out.print("Choose positive number");
     }
   }
-  public void removeAmount(int amount){
+  public static void removeAmount(double amount){
     if(amount > 0){
       money -= amount;
     }
@@ -31,7 +32,7 @@ public class ATM {
       System.out.print("Choose positive number");
     }
   }
-  public void deposit(int amount){
+  public static void deposit(double amount){
     if(amount > money){
       System.out.println("You don't have enough money to deposit " + amount + " dollars");
     }
@@ -44,7 +45,7 @@ public class ATM {
   System.out.println("Error: Pick number greater than 0");
       }
   }
-    public void withdraw(int amount){
+    public static void withdraw(double amount){
       if(amount > balance){
       System.out.println("Your balance is too low to withdraw " + amount + " dollars");
     }
@@ -57,7 +58,7 @@ public class ATM {
         System.out.println("Error: Pick number greater than 0");
       }
  }
-public void getPreviousTransaction(){
+public static void getPreviousTransaction(){
   if(oldAmount > 0){
     System.out.println("Deposited " + oldAmount);
   }
@@ -68,12 +69,12 @@ public void getPreviousTransaction(){
     System.out.println("There has not been a transaction");
   }
 }
-  public void menu(){
+  public static void menu(){
     String choice = "";
     Scanner scanner = new Scanner(System.in);
 System.out.println("\n");
 System.out.println("****************************************");
-System.out.println("Welcome " + name);
+System.out.println("Welcome");
 System.out.println("A. Check balance");
 System.out.println("B. Check money in hand");
 System.out.println("C. Withdraw");
@@ -132,5 +133,6 @@ break;
   System.out.println("Current Amount in account: " + balance);
       System.out.println("Current Amount in hand: " + money);
   System.out.println("****************************************");
+  scanner.close();
     }
   } 
